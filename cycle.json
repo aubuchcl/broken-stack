@@ -1,0 +1,28 @@
+{
+  "version": "1.0",
+  "containers": {
+    "demo": {
+      "name": "demo",
+      "image": {
+        "name": "frontend",
+        "origin": {
+          "type": "docker-file",
+          "details": {
+            "context_dir": "/",
+            "build_file": "/Dockerfile"
+          }
+        }
+      },
+      "config": {
+        "network": {
+          "public": "enable",
+          "hostname": "frontend",
+          "ports": ["80:80", "443:80"]
+        },
+        "deploy": {
+          "instances": 1
+        }
+      }
+    }
+  }
+}
